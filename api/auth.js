@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
     const guildId = '1237219812174987306';
     const requiredRoleId = '1237219812174987306';
     const memberResponse = await axios.get(`https://discord.com/api/v10/guilds/${guildId}/members/${userResponse.data.id}`, {
-      headers: { Authorization: `Bot YOUR_BOT_TOKEN` }, // Use your bot's token
+      headers: { Authorization: process.env.DISCORD_BOT_TOKEN }, // Use your bot's token
     });
 
     const userRoles = memberResponse.data.roles;
