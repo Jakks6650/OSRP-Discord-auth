@@ -5,7 +5,7 @@ module.exports = async (req, res) => {
 
   const clientId = process.env.DISCORD_CLIENT_ID;
   const clientSecret = process.env.DISCORD_CLIENT_SECRET;
-  const redirectUri = 'https://osrp-discord-auth.vercel.app/api/auth';
+  const redirectUri = 'https://osrp-discord-auth.vercel.app/';
 
   try {
     const tokenResponse = await axios.post('https://discord.com/api/oauth2/token', new URLSearchParams({
