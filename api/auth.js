@@ -3,8 +3,8 @@ const axios = require('axios');
 module.exports = async (req, res) => {
   const { code } = req.query;
 
-  const clientId = '1272938919603867669';
-  const clientSecret = 'cNUTwa4_svkIZs3Hg0p5f3LpoNzBKkFH';
+  const clientId = process.env.DISCORD_CLIENT_ID;
+  const clientSecret = process.env.DISCORD_CLIENT_SECRET;
   const redirectUri = 'https://osrp-discord-auth.vercel.app/api/auth';
 
   try {
@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
     const guildId = '1237219812174987306';
     const requiredRoleId = '1237219812174987306';
     const memberResponse = await axios.get(`https://discord.com/api/v10/guilds/${guildId}/members/${userResponse.data.id}`, {
-      headers: { Authorization: `MTI3MjkzODkxOTYwMzg2NzY2OQ.GStr-Q.w113mIEEvJTa1_Y4McZooRphQ-7UTqyw0nBKko` }, // Use your bot's token
+      headers: { Authorization: `Bot YOUR_BOT_TOKEN` }, // Use your bot's token
     });
 
     const userRoles = memberResponse.data.roles;
